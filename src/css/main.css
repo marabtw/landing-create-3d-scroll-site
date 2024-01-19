@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: raleway_m;
+  src: url(../assets/fonts/raleway-v22-cyrillic-300.woff2);
+  font-weight: 300;
+}
+@font-face {
+  font-family: raleway_m;
+  src: url(../assets/fonts/raleway-v22-cyrillic-100.woff2);
+  font-weight: 100;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  text-transform: uppercase;
+  width: -moz-min-content;
+  width: min-content;
+  line-height: 1;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-size: calc((1vw + 1vh) * 0.8);
+  font-family: raleway_m, sans-serif;
+  line-height: 1.75;
+  height: 4030px;
+  font-weight: 300;
+}
+
+.container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  perspective: 1500px;
+}
+.container .gallery {
+  transform-style: preserve-3d;
+  height: 100%;
+}
+.container .gallery .frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.75s cubic-bezier(0.075, 0.5, 0, 1), opacity 0.75s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.container .gallery .frame .frame__content h2 {
+  text-align: center;
+  font-size: calc((1vw + 1vh) * 3);
+}
+.container .gallery .frame .frame__content .frame-media {
+  position: relative;
+  width: calc((1vw + 1vh) * 26);
+  height: calc((1vw + 1vh) * 36);
+  background-size: cover;
+  background-position: center;
+}
+.container .gallery .frame .frame__content .frame-media_left {
+  right: calc(13 * (1vw + 1vh) + 30px);
+}
+.container .gallery .frame .frame__content .frame-media_right {
+  left: calc(13 * (1vw + 1vh) + 30px);
+}
+.container .gallery .frame .frame__content video.frame-media {
+  width: calc((1vw + 1vh) * 36);
+  height: calc((1vw + 1vh) * 26);
+}
+.container .gallery .frame .frame__content video.frame-media_right {
+  left: calc(18 * (1vw + 1vh) + 30px);
+}
+.container .gallery .frame .frame__content video.frame-media_left {
+  right: calc(18 * (1vw + 1vh) + 30px);
+}
+.container .gallery .frame .text-left > * {
+  position: relative;
+  right: 20vw;
+}
+.container .gallery .frame .text-right > * {
+  position: relative;
+  left: 20vw;
+}
+.container .gallery .frame h3 {
+  font-size: calc((1vw + 1vh) * 3);
+}
+.container .gallery .frame p {
+  max-width: 30vw;
+  margin-top: 3vh;
+}
+.container .gallery .frame .copiright {
+  text-align: center;
+  width: 100%;
+  font-size: calc((1vw + 1vh) * 1.3);
+}
+.container .gallery .frame_bg {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.audio-block {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.audio-block .soundButton {
+  width: 100px;
+  height: 70px;
+  cursor: pointer;
+  transition: 0.25 ease;
+}
+.audio-block .soundButton.paused {
+  opacity: 0.4;
+}/*# sourceMappingURL=main.css.map */

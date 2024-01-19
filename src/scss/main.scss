@@ -1,0 +1,136 @@
+@import 'variables.scss';
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@font-face {
+	font-family: raleway_m;
+	src: url(../assets/fonts/raleway-v22-cyrillic-300.woff2);
+	font-weight: 300;
+}
+@font-face {
+	font-family: raleway_m;
+	src: url(../assets/fonts/raleway-v22-cyrillic-100.woff2);
+	font-weight: 100;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: 100;
+	text-transform: uppercase;
+	width: min-content;
+	line-height: 1;
+}
+
+body{
+	background-color: black;
+	color: white;
+	font-size: calc($index * .8);
+	font-family: raleway_m, sans-serif;
+	line-height: 1.75;
+	height: $dept;
+	font-weight: 300;
+}
+.container{
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	perspective: 1500px;
+
+	.gallery{
+		transform-style: preserve-3d;
+		height: 100%;
+
+		.frame{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: $transition, opacity .75s ease;
+			will-change: transform;
+			transform-style: preserve-3d;
+
+			.frame__content{
+				h2{
+					text-align: center;
+					font-size: calc($index * 3);
+				}
+
+				.frame-media{
+					position: relative;
+					width: calc($index * $side-small);
+					height: calc($index * $side-bigger);
+					background-size: cover;
+					background-position: center;
+				}
+
+				.frame-media_left{
+					right: calc($side-small / 2 * $index + $gutter);
+				}
+
+				.frame-media_right{
+					left: calc($side-small / 2 * $index + $gutter);
+				}
+
+				video.frame-media{
+					width: calc($index * $side-bigger);
+					height: calc($index * $side-small);
+				}
+
+				video.frame-media_right{
+					left: calc($side-bigger / 2 * $index + $gutter)
+				}
+
+				video.frame-media_left{
+					right: calc($side-bigger / 2 * $index + $gutter)
+				}
+			}
+			.text-left > *{
+				position: relative;
+				right: 20vw;
+			}
+			.text-right > *{
+				position: relative;
+				left: 20vw;
+			}
+			
+			h3{
+				font-size: calc($index * 3);
+			}
+			p{
+				max-width: 30vw;
+				margin-top: 3vh;
+			}
+			.copiright{
+				text-align: center;
+				width: 100%;
+				font-size: calc($index * 1.3);
+			}
+		}
+
+		.frame_bg{
+			background-color: rgba(0, 0, 0, .9);
+		}
+	}
+}
+
+.audio-block{
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+	.soundButton{
+		width: 100px;
+		height: 70px;
+		cursor: pointer;
+		transition: .25 ease;
+	}
+	.soundButton.paused{
+		opacity: .4;
+	}
+}
